@@ -1,0 +1,9 @@
+#todolist
+
+I have completed my first task as python developer at CodSoft. I used html and css for creating frontend and flask web framework for backend. for this task I learnt two important lessons.
+
+1-UNDERSTAND PROBLEM: I began creating it without knowing all the functionalities that must be included in it. For example, at the start I was only supposed to add two functions edit and delete but later on realize there must be check so keep tract on which tasks have been completed. 
+
+2-IDENTIFY SOLUTION ACCORDING TO PROBLEM: at beginning, I used list for storing data but encountered problems when dealing with their indexes. and also need to store tasks status correctly.
+
+#codsoft #CodSoft #pythondeveloper #internship #firstproject 

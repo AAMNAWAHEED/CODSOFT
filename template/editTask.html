@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="todo-list">
+        <h1>Edit Task</h1>
+        <div>
+            <form action="/editTask" method="POST">
+                <input type="number" name="index" value ={{index}}  hidden>
+                <input type="text" name="new-task" value ="{{old_task}}" >
+                <button id="add-task">Add</button>
+            </form>
+        </div>
+</body>
+</html>
