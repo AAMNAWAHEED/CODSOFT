@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <STyle>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: rgb(195, 195, 244);
+      margin: 0;
+      padding: 0;
+    }
+    
+    #calculator {
+      width: 300px;
+      margin: 50px auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px #aaa;
+      background-color: #fff;
+      padding: 10px;
+    }
+    
+    #result {
+      font-size: 36px;
+      text-align: right;
+      margin-bottom: 10px;
+      background-color: #f4f4f4;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px #ccc;
+    }
+    
+    #buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    button {
+      font-size: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f4f4f4;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #e0e0e0;
+    }
+    
+  </STyle>
+</head>
+<body>
+  <div id="calculator">
+    <div id="result">{{result}}</div>
+    <form id="calc-form" method="POST">
+      <input type="text" id="expression" name="expression" style="display: none;">
+      <div id="buttons">
+        <button type="button" onclick="clearResult()">C</button>
+        <button type="button" onclick="appendToResult('(')">(</button>
+        <button type="button" onclick="appendToResult(')')">)</button>
+        <button type="button" onclick="removeOne()">x</button>
+        <button type="button" onclick="appendToResult('7')">7</button>
+        <button type="button" onclick="appendToResult('8')">8</button>
+        <button type="button" onclick="appendToResult('9')">9</button>
+        <button type="button" onclick="appendToResult('/')">/</button>
+        <button type="button" onclick="appendToResult('4')">4</button>
+        <button type="button" onclick="appendToResult('5')">5</button>
+        <button type="button" onclick="appendToResult('6')">6</button>
+        <button type="button" onclick="appendToResult('*')">*</button>
+        <button type="button" onclick="appendToResult('1')">1</button>
+        <button type="button" onclick="appendToResult('2')">2</button>
+        <button type="button" onclick="appendToResult('3')">3</button>
+        <button type="button" onclick="appendToResult('-')">-</button>
+        <button type="button" onclick="appendToResult('0')">0</button>
+        <button type="button" onclick="appendToResult('.')">.</button>
+        <button type="submit" formaction="submit">=</button>
+        <button type="button" onclick="appendToResult('+')">+</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // JavaScript code for the calculator functionality
+    let resultDisplay = document.getElementById("result");
+    let expression = document.getElementById("expression");
+
+    function appendToResult(value) {
+      expression.value += value;
+      resultDisplay.textContent = expression.value;
+    }
+    function clearResult(){
+      expression.value = ""
+      resultDisplay.textContent = 0;
+    }
+    function removeOne(){
+      expression.value = expression.value.slice(0,-1)
+      resultDisplay.textContent = expression.value;
+    }
+  </script>
+</body>
+</html>
