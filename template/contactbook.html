@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            margin: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        form button[formaction="add"] {
+            background-color: #28a745;
+        }
+
+        form button[formaction="edit"], form button[formaction="delete"] {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <form action="search" method="POST">
+        <label for="searching">search by name or number</label>
+        <input type="text" id="searching" name="option">
+        <button>search</button>
+    </form>
+    <table>
+        <tr>
+            <td>name</td>
+            <td>phone_number</td>
+            <td>address</td>
+            <td>email</td>
+        </tr> 
+        {%for contact in contact_list%} <!--looping over list-->
+        <tr>  
+            <td>{{contact[1]}}</td>
+            <td>{{contact[2]}}</td>
+            <td>{{contact[3]}}</td>
+            <td>{{contact[4]}}</td>
+            <form method="POST">
+                <input type="hidden" name="contact_id" value="{{ contact[0] }}">
+                <td><button formaction="edit">EDIT</button></td>
+                <TD><BUtton formaction="delete">DELETE</BUtton></TD>
+            </form>
+        </tr>
+        {%endfor%}
+    </table>
+    <form >
+    <button formaction="add">ADD</button>
+</form>
+
+</body>
+</html>
